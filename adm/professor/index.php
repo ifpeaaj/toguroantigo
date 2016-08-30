@@ -1,3 +1,20 @@
+
+
+<?php
+
+session_start(); 
+
+if ($_SESSION["status"] == '') {
+	
+	 header('Location: ../index.html'); 
+	 
+ } 
+ 
+ 
+ //if (isset($_GET["nome"]))
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,7 +42,7 @@ position: fixed;
 	
 	
 	<div>
- <th><a href="../index.php"><img src="../img/sair.png"width="60" title="Voltar a tela principal!"></a></th>
+ <th><a href="../adm/login/sair.php"><img src="../img/sair.png"width="60" title="Voltar a tela principal!"></a></th>
 	
 	</div>
 	

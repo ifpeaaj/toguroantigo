@@ -1,3 +1,22 @@
+
+
+<?php
+
+session_start(); 
+
+if ($_SESSION["status"] == '') {
+	
+	 header('Location: ../index.html'); 
+	 
+ } 
+ 
+ 
+ //if (isset($_GET["nome"]))
+
+?>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -79,7 +98,7 @@ include '../conexao/conexao.php';
 $stmt = $conexao->prepare("select * from tbl_modalidade where nome_modalidade like ?");
 
 if (isset($_GET["nome_modalidade"])){
-$nome= $_GET["nome"];
+$nome= $_GET["nome_modalidade"]; 
   
 
 $stmt->bindValue(1,"%" .$nome ."%");

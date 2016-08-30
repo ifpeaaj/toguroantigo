@@ -1,6 +1,11 @@
 <?php
+session_start();
+?>
+
+
+<?php
 echo "<meta charset = 'UTF-8'>"; 
-//session_start();
+
 
 //$_SESSION["username"] = $_POST["username"];
 //$_SESSION["senha"] = $_POST["senha"];
@@ -12,12 +17,12 @@ echo "<meta charset = 'UTF-8'>";
 
 
 include '../adm/conexao/conexao.php';
-$stmt = $conexao->prepare("select * from tbl_usuario where cpf= ? and senha = ?");
- 
+$stmt = $conexao->prepare("select * from tbl_usuario where cpf_usuario= ? and senha_usuario = ?");
+  
  
 //if (isset($_GET["nome"])){
-$cpf= $_POST["cpf"];
-$senha= $_POST["senha"];
+$cpf= $_POST["cpf_usuario"];
+$senha= $_POST["senha_usuario"];
   
 
 $stmt->bindValue(1, $cpf);
@@ -35,6 +40,8 @@ foreach($obj as $linha){
 if ($obj) {  
 
 
+
+
 //session_start();
 
 //$_SESSION["senha"] = $senha;
@@ -43,14 +50,9 @@ if ($obj) {
 //echo $_SESSION["username"]; 
 $_SESSION["status"] = 'LOGADO';
 $_SESSION["cpf"] = $cpf;
-$_SESSION["nome"] = $linha["nome"];
-$_SESSION["tipo_usuario"] = $linha['tipo_usuario'];
-//echo '<p  align="center">    ' . $stmt['nome'] . '</p>';
+$_SESSION["nome"] = $linha["nome_usuario"];
+$_SESSION["tipo_usuario"] = $linha['tipo_usuario']; 
 
-
-//echo $_SESSION["cpf"]." você está logado"."<br>"; 
-//echo $_SESSION["nome"]."<br>"; 
-//echo $_SESSION["tipo_usuario"]."<br>"; 
 
 } else { 
 echo "Senha errada";

@@ -1,14 +1,19 @@
-<?php
-session_start();
- 
 
-if ($_SESSION['status'] = 'LOGADO') { 
-	echo $_SESSION["status"];
+<?php
+
+session_start(); 
+
+if ($_SESSION["status"] == '') {
 	
-	} else {
-     header("Location: erro.php"); 
-}
-	?>
+	 header('Location: ../../index.html'); 
+	 
+ } 
+ 
+ 
+ //if (isset($_GET["nome"]))
+
+?>
+
 
 <!DOCTYPE html>
 <html>
@@ -42,7 +47,7 @@ if ($_SESSION['status'] = 'LOGADO') {
 	</div>
 	
 				<div>
- <th><a href="../../index.html"><img src="../img/sair.png"width="60" title="Voltar a tela principal!"></a></th>
+ <th><a href="../login/sair.php"><img src="../img/sair.png"width="60" title="Voltar a tela principal!"></a></th>
 	
 	</div>
 	

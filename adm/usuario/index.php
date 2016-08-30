@@ -1,3 +1,29 @@
+
+
+<?php
+
+session_start(); 
+
+if ($_SESSION["status"] == '') {
+	
+	 header('Location: ../index.html'); 
+	 
+ } 
+ 
+ 
+ //if (isset($_GET["nome"]))
+
+?>
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -86,7 +112,7 @@ if (isset($_GET["nome_usuario"])){
 $nome= $_GET["nome_usuario"];
   
 
-$stmt->bindValue(1,"%" .$nome_usuario ."%");
+$stmt->bindValue(1,"%" .$nome ."%");
 
 
 $stmt->execute();
