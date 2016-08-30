@@ -37,24 +37,54 @@ foreach($resultado as $linha){
 
 
 echo '
-<form action="updatemodalidade.php?id_modalidade='. $linha['id_modalidade'].'" method="POST"> 
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="../css/adm.css"/>
+</head>
+<body>
+<form action="updatemodalidade.php?id_modalidade='. $linha['id_modalidade'].'" method="POST" class="header"> 
+	<div class="margimformadm">
 
+	<p class="texte" >Cadastro de Modalidade </p>
 
-Seu Nome : <input type="text" name="nome_modalidade" value=' . $linha['nome_modalidade'] . '><br>
-
-Quantidade de Vagas : <input type="text" name="qtd_vagas_modalidade" value=' . $linha['qtd_vagas_modalidade'] . '><br>
-
-
-Turno : <input type="text" name="turno_modalidade" value=' . $linha['turno_modalidade'] . '><br>
-
-
-<br>  
-
-Horario : <input type="text" name="horario_modalidade" value= ' . $linha['horario_modalidade'] .  '><br>
-  
-
-<input type="submit" value="Enviar">
+	<table border="0">
+		<tr>
+			<td>Nome da Modalidade :</td>
+			<td><input type="text" name="nome_modalidade" required="" autofocus="" value=' . $linha['nome_modalidade'] . '>
+			</td>
+		</tr>
+		<tr>
+			<td>Quantidade de Vagas :</td>
+			<td><input type="text" name="qtd_vagas_modalidade" required="" maxlength="2" value=' . $linha['qtd_vagas_modalidade'] . '>
+			</td>
+		</tr>
+		<tr>
+			<td>Turno :</td>
+			<td>
+				<select name="turno_modalidade" required="" value=' . $linha['turno_modalidade'] . '>
+					<option></option>
+					<option value="Manhã"> Manhã	</option>
+					<option value="Tarde"> Tarde	</option>
+					<option value="Noite"> Noite	</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>Horario :</td>
+			<td><input type="time" name="horario_modalidade" required="" value= ' . $linha['horario_modalidade'] .  '>
+			</td>
+		</tr>
+		
+		<tr>
+			<td></td>
+			<td><input type="submit" value="Enviar">
+			</td>
+		</tr>
+	</table>
 </form> 
+</div>
+</body>
+</html>
 ';
 
 

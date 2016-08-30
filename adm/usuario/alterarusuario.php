@@ -36,51 +36,81 @@ foreach($resultado as $linha){
 
 
 
-echo ' <form action="updateusuario.php?id_matricula='. $linha['id_matricula'].'" method="POST"> 
-   
-   
-   
-Nome do Professor: 
-  <input type="text" name="nome_usuario" value=' . $linha['nome_usuario'] . '><br>
+echo '<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="../css/adm.css"/>
+	<script type="text/javascript" src="../js/MascaraValidacao.js"></script>
+</head>
+<body>
 
-Rg : 
-<input name="rg_usuario" type="text" id="rg_usuario" value=' . $linha['rg_usuario'] . '>
-<br>
+<form action="updateusuario.php?id_matricula='. $linha['id_matricula'].' method="POST" class="header" name="form1"> 
 
+    	<div class="margimformadm"> 
 
-Cpf : <input type="text" name="cpf_usuario" value=' . $linha['cpf_usuario'] . '><br>
+	<p class="texte" >Cadastro de Usuário</p>
 
+	<table border="0">
+		<tr>
+			<td>Nome Completo :</td>
+			<td><input type="text" name="nome_usuario" required="" autofocus="" value=' . $linha['nome_usuario'] . '>
+			</td>
+		</tr>
+		<tr>
+			<td>Rg :</td>
+			<td><input type="text" name="rg_usuario" id="rg" required="" class="form-control rg-mask" placeholder="Ex.: 0000000" maxlength="7" value=' . $linha['rg_usuario'] . '>
+			</td>
+		</tr>
+		<tr>
+			<td>Cpf :</td>
+			<td><input type="text" name="cpf_usuario" id="cpf_usuario" required="" class="form-control cpf-mask" placeholder="Ex.: 000.000.000-00" maxlength="14" onKeyPress="MascaraCPF(form1.cpf_usuario);" value=' . $linha['cpf_usuario'] . '>
+			</td>
+		</tr>
+		<tr>
+			<td>Endereço :</td>
+			<td><input type="text" name="endereco_usuario" required="" value=' . $linha['endereco_usuario'] . '>
+			</td>
+		</tr>
+		<tr>
+			<td>Telefone :</td>
+			<td><input type="text" name="telefone_usuario" required="" class="form-control cel-sp-mask" placeholder="Ex.: (00) 00000-0000" maxlength="14" onKeyPress="MascaraTelefone(form1.telefone_usuario);" value=' . $linha['telefone_usuario'] . '>
+			</td>
+		</tr>
+		<tr>
+			<td>email :</td>
+			<td><input type="email" name="email_usuario" required="" value=' . $linha['email_usuario'] . '>
+			</td>
+		</tr>
+		<tr>
+			<td>Data de Nascimento :</td>
+			<td><input type="date" name="data_nascimento_usuario" required="" class="form-control" placeholder="Ex.: aaaa/mm/dd" data-mask="0000/00/00" maxlength="10" onKeyPress="MascaraData(form1.data_nascimento_usuario);" value=' . $linha['data_nascimento_usuario'] . '>
+			</td>
+		</tr>
+		tr>
+			<td>Tipo de Usuário :</td>
+			<td>
+				<select name="tipo_usuario" required="" value= ' . $linha['tipo_usuario'] . '>
+					<option></option>
+					<option value="A"> Administrador	</option>
+					<option value="F"> Funcionário	</option>
+					<option value="U"> Usuário	</option>
+				</select>
+			</td>
+		<tr>
+		<tr>
+			<td>Senha :</td>
+			<td><input type="text" name="senha_usuario" required="" maxlength="6" value=' . $linha['senha_usuario'] . '>
+			</td>
+		</tr>
+			<td></td>
+			<td><input type="submit" value="Enviar">
+			</td>
+		</tr>
+	</table>
 
-  
-Endereço : <input type="text" name="endereco_usuario" value=' . $linha['endereco_usuario'] . '><br>
-
-Telefone : <input type="text" name="telefone_usuario" value=' . $linha['telefone_usuario'] . '><br>
-
-
-
-email : <input type="text" name="email_usuario" value=' . $linha['email_usuario'] . '><br> 
-
-Data de nascimento : <input type="text" name="data_nascimento_usuario" value=' . $linha['data_nascimento_usuario'] . '><br>
-
-
-<label>Tipo de Usuário</label>
-<select name="tipo_usuario" value= ' . $linha['tipo_usuario'] . '>  
-<option value="A"> Administrador	</option>
-<option value="F"> Funcionário	</option>
-<option value="U"> Usuário	</option>
-</select>
-<br>
-
-Senha : <input type="text" name="senha_usuario" value=' . $linha['senha_usuario'] . '><br> 
-
-
-<input type="submit" value="Enviar">
-</form> ' ;
-
-
-
-
-
+</form> 
+</div>
+ </body>
+</html>  ' ;
 
 
 } 

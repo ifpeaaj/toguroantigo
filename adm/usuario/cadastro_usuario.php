@@ -46,7 +46,23 @@
 		</tr>
 		<tr>
 			<td>Data de Nascimento :</td>
-			<td><input type="text" name="data_nascimento_usuario" required="" class="form-control" placeholder="Ex.: aaaa/mm/dd" data-mask="0000/00/00" maxlength="10" onKeyPress="MascaraData(form1.data_nascimento_usuario);">
+			<td><input type="date" name="data_nascimento_usuario" required="" class="form-control" placeholder="Ex.: aaaa/mm/dd" data-mask="0000/00/00" maxlength="10" onKeyPress="MascaraData(form1.data_nascimento_usuario);">
+			</td>
+		</tr>
+		<tr>
+			<td>Tipo de Usuário :</td>
+			<td>
+				<select name="tipo_usuario" required="">
+					<option></option>
+					<option value="A"> Administrador	</option>
+					<option value="F"> Funcionário	</option>
+					<option value="U"> Usuário	</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>Senha :</td>
+			<td><input type="text" name="senha_usuario" required="" maxlength="6">
 			</td>
 		</tr>
 		<tr>
