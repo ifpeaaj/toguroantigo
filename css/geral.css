@@ -46,7 +46,7 @@ input[type="radio"]+label {
     display: block
 }
 
-.headre{
+.header{
     overflow:visible;
 }
 #header {
@@ -323,7 +323,7 @@ input[type="radio"]+label {
     display: block;
     width: 100%;
     min-width: 1000px;
-    height: 65px;
+    height: 100px;
     margin-top:100px; 
      float:left;
 
@@ -364,6 +364,9 @@ table.atividade td ,th{
 .ativi{
     margin-top:5%;
 }
+
+
+    
 
 
 

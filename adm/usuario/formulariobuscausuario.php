@@ -1,4 +1,5 @@
 <html>
+<head><meta charset="utf-8"></head>
 <body>
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET"> 
 

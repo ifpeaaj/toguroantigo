@@ -50,6 +50,12 @@ if ($obj) {
 //echo $_SESSION["username"]; 
 $_SESSION["status"] = 'LOGADO';
 $_SESSION["cpf"] = $cpf;
+$_SESSION["id_matricula"] = $linha['id_matricula'];
+$_SESSION["mecadastrei"] = "NAOCADASTREI";
+
+ $_SESSION["erro"] = "VAGAS DISPONÍVEIS";
+
+
 $_SESSION["nome"] = $linha["nome_usuario"];
 $_SESSION["tipo_usuario"] = $linha['tipo_usuario']; 
 

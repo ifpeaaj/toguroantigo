@@ -1,10 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+</head>
+
+
+
 <?php
 
- 
-
-
 include '../conexao/conexao.php';
-  
   
 try{
 $stmt = $conexao->prepare("delete from tbl_usuario where id_matricula = ?");

@@ -17,7 +17,7 @@
          <ul class="topnav-menu">
             <li><a href="../index.html" id="link-inicio" title="inicio">ínicio</a></li>
             <li><a href="../Atividades/Atividades.html" id="link-Atividades" title="Atividades">Atividades</a></li>
-            <li><a href="Horarios.html" id="link-Horarios" title="Horarios">Horários</a></li>
+            <li><a href="Horarios.php" id="link-Horarios" title="Horarios">Horários</a></li>
             
           </ul>    
         </div>
@@ -46,7 +46,7 @@
 
            
             <?php
-              $conexao = new PDO("mysql:host=localhost;dbname=bd_academia_toguro","root","@luno1fpe");
+              $conexao = new PDO("mysql:host=localhost;dbname=bd_academia_toguro","root","");
                 $stmt = $conexao->query ("select * from tbl_modalidade");
                 while ($linha = $stmt -> fetch (PDO::FETCH_ASSOC)){
                 echo "<tr height='60px' width='100px'>

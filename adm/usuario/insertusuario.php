@@ -1,14 +1,15 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+</head>
+
+
 <?php
 
- 
-
-
-
-  
 include '../conexao/conexao.php';
 
-
-  
 try{
 $stmt = $conexao->prepare("insert into tbl_usuario
 (nome_usuario,rg_usuario,cpf_usuario,endereco_usuario,telefone_usuario,email_usuario,data_nascimento_usuario,data_matricula_usuario,tipo_usuario,senha_usuario) values (?,?,?,?,?,?,?,?,?,?)");

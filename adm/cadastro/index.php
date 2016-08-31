@@ -1,12 +1,33 @@
 
+
 <?php
+
+
 
 session_start(); 
 
+
+
+//ECHO $_SESSION["mecadastrei"];
+
+//ECHO  $_SESSION["erro"];
+		
+		$tipo =  $_SESSION["mecadastrei"];
+	if ($tipo == 'CADASTREI') {
+	 
+	// ECHO "AAAAAAAAAAAAAAA";
+ 
+ } 
+ 	
+		
+		
+		
+
+
 if ($_SESSION["status"] == '') {
 	
-	 header('Location: ../../index.html'); 
-	 
+	 header('Location: ../index.html'); 
+	
  } 
  
  
@@ -15,72 +36,124 @@ if ($_SESSION["status"] == '') {
 ?>
 
 
+
 <!DOCTYPE html>
-<html>
-<head>
-
-</head>
-<body>
-	
-	
-
-	
-	
-	
-	 <style type="text/css">
-		#div {
- 
-        width:500px; /* Tamanho da Largura da Div */
-	height:200px; /* Tamanho da Altura da Div */
-        position:absolute; 
-        top:50%; 
-        margin-top:-100px; /* ou seja ele pega 50% da altura tela e sobe metade do valor da altura no caso 100 */
-        left:50%;
-       margin-left:-250px; /* ou seja ele pega 50% da largura tela e diminui  metade do valor da largura no caso 250 */
-	background-color:#Fff;
- 
-}
-</style>
-	
-	<div style="background-color:#000" align="center">
-	<p align="center"> <h1 align="center"><font size="6" color=#fff> ::  PÁGINA DO USUÁRIO ::</font></h1></p>
-	</div>
-	
-				<div>
- <th><a href="../login/sair.php"><img src="../img/sair.png"width="60" title="Voltar a tela principal!"></a></th>
-	
-	</div>
+  <html>
+  <head>
+    <meta charset="utf-8">
+      <link rel="stylesheet" type="text/css" href="../css/adm.css"/>
+  </head>
+  <body>
 	
 
 	
 	
-	<div id="div">
-<table style="width:80%" align="center"  cellspacing="15">
-  
-  <tr >
-    <th><img src="../img/modalidades.png"width="80"></th>
-  
-
-  </tr>
-  <tr>
- <td align="center"><a href="formcadastro.php">Escolher modalidade</a></td>
-
-
-       
-  </tr>  
-    
-  <tr>
-
-  </tr>
+	
+	<div style="background-color:#000">
+		
+	   <p align="center"> <h1 align="center"><font size="6" color=#fff> :: PÁGINA DO USUÁRIO ::</font></h1></p>
   </div>
   
-  
-  
-  </table>
-  
- 
+  <br>
+	<div>
+      <th><a href="../login/sair.php"><img src="../img/sair.png" width="60"></a></th>
+	</div>
+	
+
+  <div>
+<?php
 
 
 
+          include '../conexao/conexao.php';
+          $stmt = $conexao->prepare("select * from tbl_modalidade where nome_modalidade like ?");
+
+          //if (isset($_GET["nome_modalidade"])){
+          
+      
+          $_GET["nome_modalidade"]="";
+          $nome= $_GET["nome_modalidade"]; 
+            
+
+          $stmt->bindValue(1,"%" .$nome ."%");
+
+
+
+
+
+
+          $stmt->execute();
+
+
+          if($stmt->rowCount() >0){
+
+          echo '
+          <fieldset color=red background=orange>
+
+          <table style="width:100%" border=0 BGCOLOR=white>
+
+            <tr>
+         
+              <th WIDTH=10%>Nome</th>
+              <th WIDTH=10%>Vagas</th> 
+              <th WIDTH=10%>Turno</th>
+          <th WIDTH=10%>Horario</th>
+          <th WIDTH=10%></th>
+          <th WIDTH=10%></th>
+       <th WIDTH=10%></th>
+
+          </table>
+            </tr>';
+
+          	// echo "Modalidade Encontrada com Sucesso";
+          //	}else{
+          	// echo "Modalidade Não Encontrada !";	
+          	}	
+
+
+
+
+          $resultado = $stmt->fetchAll();
+
+	
+
+          foreach($resultado as $linha){
+
+
+	
+		
+		if ($linha['qtd_vagas_modalidade']>0){
+
+
+          echo '
+          <table style="width:100%" border=0 BGCOLOR=white>
+            <tr>
+        
+              <td WIDTH=10%><p  align="center">  ' . $linha['nome_modalidade'] . '  </p></td>
+              <td WIDTH=10%><p align="center">' . $linha['qtd_vagas_modalidade'] . ' </p></td>
+              <td WIDTH=10%><p align="center"> ' . $linha['turno_modalidade'] . ' </p></td>
+              <td WIDTH=10%><p  align="center"> ' . $linha['horario_modalidade'] .  ' </p></td>  
+			<th WIDTH=10%>'.  $_SESSION['erro'] .'</th>
+              <td WIDTH=10% align="right" ><a href="select.php?id_modalidade='. $linha['id_modalidade'].'"><img src="../img/certo.png"width="40"> <a></td>
+           <td  WIDTH=10% align="center"><a href="select.php?id_modalidade='. $linha['id_modalidade'].'">Quero me Cadastrar <a></td>
+           
+           
+           
+
+
+
+
+
+
+            </tr>
+           </fieldset> 
+          </table>';
+      } 
+}
+  ?>
+  	</div>
 </body>
 </html>
+
+
+

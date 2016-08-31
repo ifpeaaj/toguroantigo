@@ -1,8 +1,12 @@
+	
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+</head>
+
+
 <?php
-
- 
-
-
 
 include '../conexao/conexao.php';
   
@@ -50,9 +54,9 @@ $stmt -> bindParam(10,$id_matricula);
 $stmt->execute(); 
 
 if($stmt->rowCount() >0){
-	 echo "Usuario alterado com sucesso";
+	 echo "Usuário alterado com sucesso";
 	}else{
-	 echo "Usuario não alterado !";	
+	 echo "Usuário não alterado !";	
 	}	
 	
 

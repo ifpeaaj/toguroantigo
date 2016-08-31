@@ -79,9 +79,43 @@
 
 	}
 
+h1#title { /* css do nome Toguro*/
+  font-family: 'Roboto Slab', serif;
+  font-weight: 300;
+  font-size: 40px;
+  color: #000000;
+  margin: 0 auto; /*margem do nome toguro*/
+  padding-top: 100px;
+  max-width: 300px;
+  text-align: center;
+  position: relative;
 
 
 
+}
+
+        #divUsu { /*pagina do usuario,index e funcionario*/
+ 
+        width:500px; /* Tamanho da Largura da Div */
+    height:200px; /* Tamanho da Altura da Div */
+        position:absolute; 
+        top:50%; 
+        margin-top:-100px; /* ou seja ele pega 50% da altura tela e sobe metade do valor da altura no caso 100 */
+        left:50%;
+       margin-left:-250px; /* ou seja ele pega 50% da largura tela e diminui  metade do valor da largura no caso 250 */
+    background-color:#Fff;
+}
+#footer { /* modalidade E professor index*/
+position: fixed;
+
+   top: 50px;
+
+   width: 50px;
+
+   z-index: 400;
+
+   right: 0pt;
+}
 
 
 	 /*CLASSE*/
@@ -144,3 +178,65 @@
 #altura3{
 	 height:400px;
 }
+
+
+
+
+
+
+
+/* BASE/RODAPE */
+
+html,body,ol,ul,li{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline
+
+}
+ body{
+    background-color:#333;
+ }
+
+#header {
+    background-color: #000;
+    display: block;
+    width: 100%;
+    min-width: 1000px;
+    height: 65px;
+    top: 0;
+    z-index: 222
+}
+
+#toolbar {
+    background: url("../img/div.png") repeat 0 0 transparent;
+    position: absolute; /*colocar div fixa*/
+    display: block;
+    width: 100%;
+    height: 38px;
+    top: 65px;
+    z-index: 3;
+}
+
+#toolbar .container {
+    height: 38px;
+    position: relative
+}
+
+#rodape {
+    background-color: #000;
+    display: block;
+    width: 100%;
+    min-width: 1000px;
+    height: 65px;
+    margin-top:100px; 
+     float:left;
+
+}
+    table, td { 
+/* se aplica a todas as etiquetas td que estiverem dentro da etiqueta table com o id 'nome' */ 
+color: #ffffff; 
+} 

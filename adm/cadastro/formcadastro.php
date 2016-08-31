@@ -1,6 +1,7 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="../css/adm.css"/>
+	<meta charset="utf-8">
 </head>
 <body>
 <form action="insertcadastro.php" method="POST" class="header"> 
